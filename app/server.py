@@ -89,7 +89,17 @@ async def analyze(request):
     img = preprocess_input( np.array([img]) )
     predictions = learn.predict(img)  
     prediction = predictions.argmax()
-    return JSONResponse({'The model thinks that the image is a: ': str(classes[prediction])})
+    #return JSONResponse({'The model thinks that the image is a: ': str(prediction)})
+    if prediction == 0:
+        return JSONResponse({'result':"Hector's Dolphin (大西洋黑白海豚)"})
+    if prediction == 1:
+        return JSONResponse({'result':"Fraser's Dolphin (弗氏海豚)"})
+    if prediction == 2:
+        return JSONResponse({'result':"Bottlenose Dolphin (瓶鼻海豚)"})
+    if prediction == 3:
+        return JSONResponse({'result':"Risso's Dolphin (花紋海豚)"})
+    if prediction == 4:
+        return JSONResponse({'result':"Pink Dolphin (粉紅瓶鼻海豚)"})
 
 
 if __name__ == '__main__':
