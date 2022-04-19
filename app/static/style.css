@@ -1,5 +1,8 @@
+*{
+	font-family: monospace;
+}
 body {
-    background-color: #fff;
+    background-color: #e9f6f7;
 }
 
 .no-display {
@@ -17,11 +20,13 @@ body {
     font-size: 30px;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #262626;
+    color: #626e85;
+
 }
 
 .content {
     margin-top: 10em;
+	
 }
 
 .analyze {
@@ -36,7 +41,7 @@ body {
 .result-label {
     margin-top: 0.5em;
     padding: 10px;
-    font-size: 13px;
+    font-size: 24px;
 }
 
 button.choose-file-button {
@@ -44,21 +49,31 @@ button.choose-file-button {
     height: 40px;
     border-radius: 2px;
     background-color: #ffffff;
-    border: solid 1px #7052CB;
-    font-size: 13px;
-    color: #7052CB;
+    border: solid 1px #626e85;
+    font-size: 20px;
+    color: #626e85;
+    border-radius: 10px;
 }
 
 button.analyze-button {
     width: 200px;
     height: 40px;
-    border: solid 1px #7052CB;
+    border: solid 1px #626e85;
     border-radius: 2px;
-    background-color: #7052CB;
-    font-size: 13px;
+	background: #ee7752;
+    background: linear-gradient(-45deg, #7bd5f5, #787ff7, #4adede, #1ca7ec, #1f2f98);
+    font-size: 20px;
     color: #ffffff;
+    border-radius: 10px;
+	background-size: 400% 400%;
+	animation: gradient 4s ease-in-out infinite;
 }
 
 button:focus {
     outline: 0;
+}
+@keyframes gradient{
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
 }

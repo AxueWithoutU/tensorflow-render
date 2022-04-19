@@ -6,7 +6,7 @@ from fastai.vision import *
 import tensorflow as tf
 from PIL import Image
 from tensorflow import keras
-from tensorflow.keras.applications.resnet50 import ResNet50, preprocess_input
+from tensorflow.keras.applications.densenet import DenseNet201, preprocess_input
 import numpy as np
 #from tensorflow.keras.utils.data_utils import get_file
 from io import BytesIO
@@ -21,7 +21,7 @@ from starlette.staticfiles import StaticFiles
 model_config_name = 'app/models/model.config'
 model_file_name = 'app/models/best_model.h5'
 
-classes = ['0', '1', '2', '3']
+classes = ['0:大西洋黑白海豚', '1:弗氏海豚', '2:瓶鼻海豚', '3:花紋海豚', '4:粉紅瓶鼻海豚']
 path = Path(__file__).parent
 img_size = 224
 app = Starlette()
