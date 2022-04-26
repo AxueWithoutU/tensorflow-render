@@ -18,10 +18,10 @@ from starlette.staticfiles import StaticFiles
 
 #set url
 # export_file_url = 'https://drive.google.com/uc?export=download&id=1ZZ_2JRe39KcgqGu75watpeLOtQGfeDPA'
-model_config_name = 'app/models/model.config'
-model_file_name = 'app/models/best_model.h5'
+model_config_name = 'app/models/updated_model.config'
+model_file_name = 'app/models/updated_model.h5'
 
-classes = ['0:大西洋黑白海豚', '1:弗氏海豚', '2:瓶鼻海豚', '3:花紋海豚', '4:粉紅瓶鼻海豚']
+classes = ['0:粉紅瓶鼻海豚', '1:花紋海豚', '2:瓶鼻海豚', '3:弗氏海豚', '4:大西洋黑白海豚']
 path = Path(__file__).parent
 img_size = 224
 app = Starlette()
@@ -91,15 +91,15 @@ async def analyze(request):
     prediction = predictions.argmax()
     #return JSONResponse({'The model thinks that the image is a: ': str(prediction)})
     if prediction == 0:
-        return JSONResponse({'result':"Hector's Dolphin (大西洋黑白海豚)"})
+        return JSONResponse({'result':"Pink Dolphin (粉紅瓶鼻海豚)"})
     if prediction == 1:
-        return JSONResponse({'result':"Fraser's Dolphin (弗氏海豚)"})
+        return JSONResponse({'result':"Risso's Dolphin (花紋海豚)"})
     if prediction == 2:
         return JSONResponse({'result':"Bottlenose Dolphin (瓶鼻海豚)"})
     if prediction == 3:
-        return JSONResponse({'result':"Risso's Dolphin (花紋海豚)"})
+        return JSONResponse({'result':"Fraser's Dolphin (弗氏海豚)"})
     if prediction == 4:
-        return JSONResponse({'result':"Pink Dolphin (粉紅瓶鼻海豚)"})
+        return JSONResponse({'result':"Hector's Dolphin (大西洋黑白海豚)"})
 
 
 if __name__ == '__main__':
